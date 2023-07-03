@@ -5,6 +5,7 @@ class Hero {
     this.weapon = weapon;
     this.height = height;
     this.weight = weight;
+    this._level = 1;
   }
 
   attack() {
@@ -15,6 +16,7 @@ class Hero {
         `I am attacking with power ${this._power} and ${this.weapon}`
       );
       this._power -= 10;
+      this._level++;
     }
   }
 
@@ -35,17 +37,29 @@ class Hero {
   set power(value) {
     this._power = value;
   }
+
+  get level() {
+    return this._level;
+  }
 }
 
 const hero = new Hero("Pacman", 0, "Fists", "6'2\"", "220 lbs");
 
 console.log(hero.name);
 console.log(hero.power);
+console.log(hero.level);
 
 hero.attack();
 console.log(hero.power);
+console.log(hero.level);
 
 hero.sleep();
 console.log(hero.power);
+console.log(hero.level);
+
+hero.attack();
+console.log(hero.power);
+console.log(hero.level);
+
 hero.changeWeapon("Sword");
 console.log(hero.weapon);
